@@ -1,0 +1,47 @@
+CREATE DATABASE aula3DB;
+
+SHOW DATABASES;
+
+USE Aula3DB;
+
+CREATE TABLE Aluno (
+	matricula TINYINT NOT NULL,
+    nome VARCHAR(45) NOT NULL,
+    dt_nascimento DATE,
+	PRIMARY KEY (matricula)
+);
+
+ALTER TABLE Aluno
+CHANGE matricula matricula TINYINT(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+ADD cpf VARCHAR(11) NOT NULL; 
+
+DESCRIBE Aluno;
+
+CREATE TABLE Professor(
+	matricula TINYINT(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+    cpf VARCHAR(11) NOT NULL,
+    nome VARCHAR(45) NOT NULL,
+    dt_nascimento DATE NOT NULL,
+    endereco VARCHAR(45) NOT NULL,
+    Telefone ENUM('Celular', 'Residencial') NOT NULL,
+	PRIMARY KEY(matricula)
+);
+
+DESCRIBE Professor;
+
+CREATE TABLE Disciplina(
+	cod_disciplina TINYINT(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(45) NOT NULL,
+	PRIMARY KEY (cod_disciplina)
+);
+
+DESCRIBE Disciplina;
+
+CREATE TABLE Turma(
+	cod_turma TINYINT(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(45) NOT NULL,
+	PRIMARY KEY (cod_turma)
+);
+
+DESCRIBE Turma;
+
